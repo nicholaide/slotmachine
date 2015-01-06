@@ -69,6 +69,10 @@ class ViewController: UIViewController {
     func resetButtonPressed(button: UIButton) {
         println("resetbtnpressed")
     }
+    
+    func betOneButtonPressed (button: UIButton) {
+        println(button)
+    }
 
     //concepts of frame, bounds and center. Frame and center relative to super view (container), bounds start at 0,0 always
     func setupContainerViews() {
@@ -188,6 +192,16 @@ class ViewController: UIViewController {
         //this is like setting-up the IBAction in the Storyboard
         self.resetButton.addTarget(self, action: "resetButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
         containerView.addSubview(self.resetButton)
+        
+        self.betOneButton = UIButton()
+        self.betOneButton.setTitle("Bet One", forState: UIControlState.Normal)
+        self.betOneButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
+        self.betOneButton.titleLabel?.font = UIFont(name: "Superclarendon-Bold", size: 12)
+        self.betOneButton.backgroundColor = UIColor.greenColor()
+        self.betOneButton.sizeToFit()
+        self.betOneButton.center = CGPoint(x: containerView.frame.width * 3 * kEighth, y: containerView.frame.height * kHalf)
+        self.betOneButton.addTarget(self, action: "betOneButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        containerView.addSubview(self.betOneButton)
     }
 
 }

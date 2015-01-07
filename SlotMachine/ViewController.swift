@@ -114,6 +114,13 @@ class ViewController: UIViewController {
         removeSlotImageViews()
         slots = Factory.createSlots()
         setupSecondContainer(self.secondContainer)
+        
+        var winningsMultiplier = SlotBrain.computerWinnings(slots)
+        winnings = winningsMultiplier * currentBet
+        credits += winnings
+        currentBet = 0
+        updateMainView()
+        
     }
 
     //concepts of frame, bounds and center. Frame and center relative to super view (container), bounds start at 0,0 always
